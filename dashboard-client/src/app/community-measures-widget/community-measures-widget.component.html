@@ -1,0 +1,74 @@
+<div class="card" *ngIf="formData">
+  <div class="card-header">
+    <div class="headInfo">
+      <span>Community Measures</span>
+      <cds-icon shape="info-circle"></cds-icon>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="clr-row">
+      <div class="clr-col-6">
+        <div class="chart-container">
+          <div class="chart-wrapper">
+            <ngx-charts-bar-horizontal
+              [legend]="community_legend"
+              [legendTitle]="community_legendTitle"
+              [scheme]="'natural'"
+              [yAxis]="community_showYAxis"
+              [legend]="community_showLegend"
+              [showXAxisLabel]="community_showXAxisLabel"
+              [showYAxisLabel]="community_showYAxisLabel"
+              [xAxisLabel]="community_xAxisLabel"
+              [yAxisLabel]="community_yAxisLabel"
+              [results]="formData.CommunityData"
+              [xAxis]="true"
+              [barPadding]="2"
+              [showYAxisLabel]="true"
+              [yAxis]="true"
+              [trimYAxisTicks]="false"
+              [scheme]="'natural'"
+              [rotateXAxisTicks]="false"
+              [trimXAxisTicks]="true"
+              [maxXAxisTickLength]="7">
+            </ngx-charts-bar-horizontal>
+          </div>
+          <clr-tooltip><h6 class="description" clrTooltipTrigger>CommunityIdentification</h6>
+            <clr-tooltip-content clrPosition="top-right" clrSize="lg" *clrIfOpen>
+              <span>Shows the identification with the community.</span>
+            </clr-tooltip-content>
+          </clr-tooltip>
+        </div>
+      </div>
+
+      <div class="clr-col-6">
+        <div class="chart-container">
+          <div class="chart-wrapper">
+            <div class="chart-wrapper">
+              <ngx-charts-bar-horizontal
+
+                [results]="formData.SocialData"
+                [xAxis]="true"
+                [barPadding]="2"
+                [showYAxisLabel]="true"
+                [yAxis]="true"
+                [trimYAxisTicks]="true"
+                [scheme]="'natural'"
+                [rotateXAxisTicks]="false"
+                [trimXAxisTicks]="true"
+                [maxYAxisTickLength]="Social_maxYAxisTickLength">
+              </ngx-charts-bar-horizontal>
+            </div>
+          </div>
+          <div class="tooltip-container">
+            <clr-tooltip>
+              <h6 class="description" clrTooltipTrigger>SocialCapital</h6>
+              <clr-tooltip-content clrPosition="top-right" clrSize="lg" *clrIfOpen>
+                <span>Shows the agreement with the following statements about your relationship below.</span>
+              </clr-tooltip-content>
+            </clr-tooltip>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
